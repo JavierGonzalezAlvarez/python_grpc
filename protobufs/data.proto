@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+enum Client {
+    USER_ID = 0;
+    NAME = 1;
+    SURNAME = 2;
+    ID_ADDRESS = 3;
+}
+
+enum Address {
+    STREET = 0;
+    NUMBER = 1;
+    CITY = 2;
+}
+
+message GetClientRequest {
+    int32 user_id = 1;
+    string name = 2;
+}
+
+message GetClient {
+    int32 id = 1;
+    string name = 2;
+}
+
+message GetClientResponse {
+    GetClient clientele = 1;
+}
+
+service getClient {
+    rpc Clients (GetClientRequest) returns (GetClientResponse);
+}
